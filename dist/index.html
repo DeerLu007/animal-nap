@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f5fb">
-  <meta name="description" content="用鼠标或手指摸摸猫狗，看它们轻轻回弹。">
+  <meta name="description" content="用鼠标或手指摸摸动物，看它们轻轻回弹。">
   <title>动物午休</title>
   <link rel="icon" type="image/webp" href="assets/ginger.webp">
   <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
       <p id="pet-help">轻轻划过背部，或者拨一拨尾巴。</p>
     </header>
 
-    <section class="stage" id="stage" tabindex="0" aria-label="抚摸橘猫"
+    <section class="stage" id="stage" data-backdrop="lavender" tabindex="0" aria-label="抚摸橘猫"
       aria-describedby="pet-help keyboard-help" aria-busy="true">
       <span class="sr-only" id="keyboard-help">聚焦后可按住空格抚摸背部。</span>
       <div class="cat-area">
@@ -28,35 +28,74 @@
       <div class="stage-message" role="status" hidden></div>
     </section>
 
-    <section class="cat-picker" aria-label="选择动物">
-      <h2>今天摸哪只？</h2>
-      <div class="choices">
-        <button class="choice" type="button" data-cat="ginger" aria-pressed="true" disabled>
-          <span class="portrait portrait-ginger"><img src="assets/ginger.webp" alt=""></span>
-          <span>橘猫</span>
-        </button>
-        <button class="choice" type="button" data-cat="silver" aria-pressed="false" disabled>
-          <span class="portrait portrait-silver"><img src="assets/silver.webp" alt=""></span>
-          <span>银灰猫</span>
-        </button>
-        <button class="choice" type="button" data-cat="husky" aria-pressed="false" disabled>
-          <span class="portrait portrait-husky"><img src="assets/husky.webp" alt=""></span>
-          <span>哈士奇</span>
-        </button>
-        <button class="choice" type="button" data-cat="golden" aria-pressed="false" disabled>
-          <span class="portrait portrait-golden"><img src="assets/golden.webp" alt=""></span>
-          <span>金毛</span>
-        </button>
-        <button class="choice" type="button" data-cat="ragdoll" aria-pressed="false" disabled>
-          <span class="portrait portrait-ragdoll"><img src="assets/ragdoll.webp" alt=""></span>
-          <span>布偶猫</span>
-        </button>
-        <button class="choice" type="button" data-cat="samoyed" aria-pressed="false" disabled>
-          <span class="portrait portrait-samoyed"><img src="assets/samoyed.webp" alt=""></span>
-          <span>萨摩耶</span>
-        </button>
-      </div>
-    </section>
+    <div class="controls">
+      <section class="cat-picker" aria-label="选择动物">
+        <h2>今天摸哪只？</h2>
+        <div class="choices">
+          <button class="choice" type="button" data-cat="ginger" aria-pressed="true" disabled>
+            <span class="portrait portrait-ginger"><img src="assets/ginger.webp" alt=""></span>
+            <span>橘猫</span>
+          </button>
+          <button class="choice" type="button" data-cat="silver" aria-pressed="false" disabled>
+            <span class="portrait portrait-silver"><img src="assets/silver.webp" alt=""></span>
+            <span>银灰猫</span>
+          </button>
+          <button class="choice" type="button" data-cat="husky" aria-pressed="false" disabled>
+            <span class="portrait portrait-husky"><img src="assets/husky.webp" alt=""></span>
+            <span>哈士奇</span>
+          </button>
+          <button class="choice" type="button" data-cat="golden" aria-pressed="false" disabled>
+            <span class="portrait portrait-golden"><img src="assets/golden.webp" alt=""></span>
+            <span>金毛</span>
+          </button>
+          <button class="choice" type="button" data-cat="ragdoll" aria-pressed="false" disabled>
+            <span class="portrait portrait-ragdoll"><img src="assets/ragdoll.webp" alt=""></span>
+            <span>布偶猫</span>
+          </button>
+          <button class="choice" type="button" data-cat="samoyed" aria-pressed="false" disabled>
+            <span class="portrait portrait-samoyed"><img src="assets/samoyed.webp" alt=""></span>
+            <span>萨摩耶</span>
+          </button>
+          <button class="choice" type="button" data-cat="tiger" aria-pressed="false" disabled>
+            <span class="portrait portrait-tiger"><img src="assets/tiger.webp" alt=""></span>
+            <span>老虎</span>
+          </button>
+          <button class="choice" type="button" data-cat="lion" aria-pressed="false" disabled>
+            <span class="portrait portrait-lion"><img src="assets/lion.webp" alt=""></span>
+            <span>狮子</span>
+          </button>
+          <button class="choice" type="button" data-cat="elephant" aria-pressed="false" disabled>
+            <span class="portrait portrait-elephant"><img src="assets/elephant.webp" alt=""></span>
+            <span>大象</span>
+          </button>
+          <button class="choice" type="button" data-cat="orca" aria-pressed="false" disabled>
+            <span class="portrait portrait-orca"><img src="assets/orca.webp" alt=""></span>
+            <span>蓝色虎鲸</span>
+          </button>
+        </div>
+      </section>
+      <section class="backdrop-picker" aria-labelledby="backdrop-heading">
+        <h2 id="backdrop-heading">背景</h2>
+        <div class="choices backdrop-options">
+          <button class="backdrop-choice" type="button" data-backdrop="lavender" aria-pressed="true">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>浅紫织物</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="tatami" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>榻榻米</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="meadow" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>草原</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="solid" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>雾蓝纯色</span>
+          </button>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 </html>
