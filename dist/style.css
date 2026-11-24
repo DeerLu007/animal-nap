@@ -181,7 +181,13 @@ body { margin: 0; background: var(--page); color: var(--ink); }
   .intro { display: block; }
   .intro p { margin-top: 5px; }
   .stage { height: clamp(245px, 52svh, 500px); }
-  .cat-picker .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cat-picker .choices { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
   .backdrop-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .choice, .backdrop-choice { justify-content: center; flex-wrap: wrap; gap: 3px 5px; padding: 5px; }
+  .choice { flex-direction: column; justify-content: center; gap: 3px; padding: 5px 2px; font-size: .8125rem; }
+  .backdrop-choice { justify-content: center; }
+}
+
+@media (max-width: 350px) {
+  .cat-picker .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .choice { flex-direction: row; justify-content: flex-start; gap: 8px; padding-inline: 6px; }
 }
