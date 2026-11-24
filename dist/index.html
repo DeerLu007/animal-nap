@@ -17,7 +17,7 @@
       <p id="pet-help">轻轻划过背部，或者拨一拨尾巴。</p>
     </header>
 
-    <section class="stage" id="stage" tabindex="0" aria-label="抚摸橘猫"
+    <section class="stage" id="stage" data-backdrop="lavender" tabindex="0" aria-label="抚摸橘猫"
       aria-describedby="pet-help keyboard-help" aria-busy="true">
       <span class="sr-only" id="keyboard-help">聚焦后可按住空格抚摸背部。</span>
       <div class="cat-area">
@@ -71,6 +71,27 @@
           <button class="choice" type="button" data-cat="orca" aria-pressed="false" disabled>
             <span class="portrait portrait-orca"><img src="assets/orca.webp" alt=""></span>
             <span>蓝色虎鲸</span>
+          </button>
+        </div>
+      </section>
+      <section class="backdrop-picker" aria-labelledby="backdrop-heading">
+        <h2 id="backdrop-heading">背景</h2>
+        <div class="choices backdrop-options">
+          <button class="backdrop-choice" type="button" data-backdrop="lavender" aria-pressed="true">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>浅紫织物</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="tatami" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>榻榻米</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="meadow" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>草原</span>
+          </button>
+          <button class="backdrop-choice" type="button" data-backdrop="solid" aria-pressed="false">
+            <span class="backdrop-swatch" aria-hidden="true"></span>
+            <span>雾蓝纯色</span>
           </button>
         </div>
       </section>

@@ -4,6 +4,7 @@ const still = stage.querySelector('.cat-still');
 const hand = stage.querySelector('.hand');
 const message = stage.querySelector('.stage-message');
 const buttons = [...document.querySelectorAll('.choice')];
+const backdropButtons = [...document.querySelectorAll('.backdrop-choice')];
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
 const width = 960;
@@ -273,6 +274,14 @@ document.addEventListener('visibilitychange', () => {
 for (const button of buttons) {
   button.addEventListener('click', () => choose(button.dataset.cat));
 }
+
+for (const button of backdropButtons) {
+  button.addEventListener('click', () => {
+    stage.dataset.backdrop = button.dataset.backdrop;
+    for (const option of backdropButtons) option.setAttribute('aria-pressed', String(option === button));
+  });
+}
+
 
 function size() {
   const scene = canvas.getBoundingClientRect();
