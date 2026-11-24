@@ -21,21 +21,31 @@ body { margin: 0; background: var(--page); color: var(--ink); }
 }
 
 .room {
-  width: min(100% - 64px, 1104px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 288px;
+  align-items: start;
+  gap: 16px 20px;
+  width: min(100% - clamp(24px, 4vw, 68px), 1840px);
   margin-inline: auto;
-  padding-block: clamp(36px, 7vh, 72px) 42px;
+  padding-block: clamp(14px, 2.7vh, 30px) 20px;
 }
-.intro { margin-block-end: 22px; }
+.intro {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 22px;
+}
 .intro h1 {
   margin: 0;
   font-family: "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
-  font-size: clamp(2.35rem, 4.2vw, 4rem);
+  font-size: clamp(1.85rem, 3.1vw, 3.25rem);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: .025em;
 }
 .intro p {
-  margin: 14px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.55;
@@ -45,7 +55,8 @@ body { margin: 0; background: var(--page); color: var(--ink); }
   isolation: isolate;
   display: grid;
   place-items: center;
-  aspect-ratio: 2.18;
+  container-type: size;
+  height: clamp(382px, calc(100svh - 116px), 1000px);
   overflow: hidden;
   border: 1px solid #ccbedc;
   border-radius: 25px;
@@ -64,7 +75,8 @@ body { margin: 0; background: var(--page); color: var(--ink); }
 .stage:focus-visible, .choice:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .cat-area {
   position: absolute;
-  width: 86%;
+  /* Leave room for the full silhouette even in short viewports. */
+  width: min(106%, 178cqh);
   aspect-ratio: 8 / 5;
   inset: 50% auto auto 50%;
   transform: translate(-50%, -50%);
@@ -98,27 +110,20 @@ body { margin: 0; background: var(--page); color: var(--ink); }
   background: var(--page);
   color: var(--ink);
 }
-.cat-picker {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px 24px;
-  margin-top: 20px;
-}
-.cat-picker h2 { margin: 0; font-size: 1rem; font-weight: 650; }
-.choices { display: flex; gap: 10px; }
+.cat-picker h2 { margin: 0 0 10px; font-size: 1rem; font-weight: 650; }
+.choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .choice {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 54px;
-  padding: 6px 15px 6px 7px;
+  gap: 8px;
+  min-height: 49px;
+  padding: 6px;
   border: 1px solid var(--edge);
   border-radius: 11px;
   background: #fffdfd;
   color: var(--muted);
   font: inherit;
-  font-size: .94rem;
+  font-size: .875rem;
   font-weight: 650;
   white-space: nowrap;
   cursor: pointer;
@@ -129,12 +134,12 @@ body { margin: 0; background: var(--page); color: var(--ink); }
 .portrait {
   display: grid;
   place-items: center;
-  width: 53px;
-  height: 37px;
+  width: 44px;
+  height: 32px;
   overflow: hidden;
   border-radius: 7px;
 }
-.portrait img { width: 62px; transform: translateX(4px); }
+.portrait img { width: 53px; transform: translateX(4px); }
 .portrait-ginger { background: #f5e3d3; }
 .portrait-silver { background: #e2e3ed; }
 .portrait-husky { background: #e2e9f0; }
@@ -143,17 +148,17 @@ body { margin: 0; background: var(--page); color: var(--ink); }
 .portrait-ragdoll { background: #ece4df; }
 .portrait-samoyed { background: #e6ebf4; }
 
-@media (max-width: 1024px) {
-  .cat-picker { flex-wrap: wrap; }
-  .choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+@media (max-width: 1000px) {
+  .room { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .stage { height: clamp(280px, 56svh, 675px); border-radius: 18px; }
+  .choices { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
 }
 
-@media (max-width: 740px) {
-  .room { width: calc(100% - 32px); padding-block: 34px 30px; }
-  .intro { margin-bottom: 18px; }
-  .intro p { margin-top: 10px; }
-  .stage { aspect-ratio: 1.12; border-radius: 18px; }
-  .cat-area { width: 105%; }
-  .cat-picker { flex-wrap: wrap; margin-top: 18px; }
-  .choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 540px) {
+  .room { gap: 12px; }
+  .intro { display: block; }
+  .intro p { margin-top: 5px; }
+  .stage { height: clamp(245px, 52svh, 500px); }
+  .choices { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .choice { justify-content: center; flex-wrap: wrap; gap: 3px 5px; padding: 5px; }
 }
