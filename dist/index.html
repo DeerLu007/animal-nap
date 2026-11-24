@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f5fb">
+  <meta name="description" content="用鼠标或手指摸摸猫狗，看它们轻轻回弹。">
+  <title>动物午休</title>
+  <link rel="icon" type="image/webp" href="assets/ginger.webp">
+  <link rel="stylesheet" href="style.css">
+  <script src="pet.js" defer></script>
+</head>
+<body>
+  <main class="room">
+    <header class="intro">
+      <h1>动物午休</h1>
+      <p id="pet-help">轻轻划过背部，或者拨一拨尾巴。</p>
+    </header>
+
+    <section class="stage" id="stage" tabindex="0" aria-label="抚摸橘猫"
+      aria-describedby="pet-help keyboard-help" aria-busy="true">
+      <span class="sr-only" id="keyboard-help">聚焦后可按住空格抚摸背部。</span>
+      <div class="cat-area">
+        <img class="cat-still" src="assets/ginger.webp" alt="">
+        <canvas class="cat" aria-hidden="true"></canvas>
+      </div>
+      <img class="hand" src="assets/hand.webp" alt="" draggable="false" hidden>
+      <div class="stage-message" role="status" hidden></div>
+    </section>
+
+    <section class="cat-picker" aria-label="选择动物">
+      <h2>今天摸哪只？</h2>
+      <div class="choices">
+        <button class="choice" type="button" data-cat="ginger" aria-pressed="true" disabled>
+          <span class="portrait portrait-ginger"><img src="assets/ginger.webp" alt=""></span>
+          <span>橘猫</span>
+        </button>
+        <button class="choice" type="button" data-cat="silver" aria-pressed="false" disabled>
+          <span class="portrait portrait-silver"><img src="assets/silver.webp" alt=""></span>
+          <span>银灰猫</span>
+        </button>
+        <button class="choice" type="button" data-cat="husky" aria-pressed="false" disabled>
+          <span class="portrait portrait-husky"><img src="assets/husky.webp" alt=""></span>
+          <span>哈士奇</span>
+        </button>
+        <button class="choice" type="button" data-cat="golden" aria-pressed="false" disabled>
+          <span class="portrait portrait-golden"><img src="assets/golden.webp" alt=""></span>
+          <span>金毛</span>
+        </button>
+        <button class="choice" type="button" data-cat="ragdoll" aria-pressed="false" disabled>
+          <span class="portrait portrait-ragdoll"><img src="assets/ragdoll.webp" alt=""></span>
+          <span>布偶猫</span>
+        </button>
+        <button class="choice" type="button" data-cat="samoyed" aria-pressed="false" disabled>
+          <span class="portrait portrait-samoyed"><img src="assets/samoyed.webp" alt=""></span>
+          <span>萨摩耶</span>
+        </button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
