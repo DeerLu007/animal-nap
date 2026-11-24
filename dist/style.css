@@ -148,6 +148,11 @@ body { margin: 0; background: var(--page); color: var(--ink); }
 .portrait-ragdoll { background: #ece4df; }
 .portrait-samoyed { background: #e6ebf4; }
 
+.portrait-tiger { background: #f3e2cb; }
+.portrait-lion { background: #f2e4d3; }
+.portrait-elephant { background: #ece5e1; }
+.portrait-orca { background: #dce9f7; }
+
 @media (max-width: 1000px) {
   .room { grid-template-columns: minmax(0, 1fr); gap: 14px; }
   .stage { height: clamp(280px, 56svh, 675px); border-radius: 18px; }

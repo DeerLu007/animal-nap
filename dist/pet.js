@@ -18,6 +18,7 @@ const velocity = new Float32Array(count * 2);
 const tailWeight = new Float32Array(count);
 const uv = new Float32Array(count * 2);
 const indices = [];
+// Tail guides use the same 960 × 600 coordinates as the sprite canvas.
 const cats = {
   ginger: { name: '橘猫', tail: [[707, 248], [788, 266], [840, 311], [846, 365], [816, 418], [759, 454], [675, 470]], tailRadius: 33 },
   silver: { name: '银灰猫', tail: [[709, 252], [787, 261], [835, 300], [857, 351], [841, 402], [796, 445], [722, 473], [657, 461]], tailRadius: 43 },
@@ -25,6 +26,10 @@ const cats = {
   golden: { name: '金毛', tail: [[705, 239], [779, 261], [831, 287], [851, 321], [842, 367], [821, 415], [816, 459]], tailRadius: 44 },
   ragdoll: { name: '布偶猫', tail: [[714, 261], [781, 275], [824, 306], [851, 348], [837, 402], [795, 443], [746, 471]], tailRadius: 53 },
   samoyed: { name: '萨摩耶', tail: [[707, 264], [774, 277], [822, 307], [845, 345], [830, 395], [792, 440], [743, 471]], tailRadius: 56 },
+  tiger: { name: '老虎', tail: [[740, 281], [790, 294], [841, 313], [867, 344], [870, 385], [852, 421], [817, 451], [775, 454], [731, 435]], tailRadius: 31 },
+  lion: { name: '狮子', tail: [[764, 246], [803, 267], [841, 298], [875, 343], [886, 387], [870, 430], [840, 448], [798, 470], [771, 496]], tailRadius: 27 },
+  elephant: { name: '大象', tail: [[777, 263], [801, 294], [832, 323], [860, 349], [879, 378], [880, 404], [863, 431], [852, 454]], tailRadius: 25 },
+  orca: { name: '蓝色虎鲸', tail: [[625, 277], [692, 286], [755, 316], [805, 341]], tailRadius: 108 },
 };
 
 for (let y = 0; y <= rows; y++) {
